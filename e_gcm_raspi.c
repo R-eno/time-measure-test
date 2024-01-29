@@ -9,9 +9,11 @@
 
 //ファイル名をグローバル変数で定義する
 #define FILE_NAME "256B_test_log.csv"
-#define LOG_FILE "/home/eno/time_measure/test-log/"
-#define ENCRYPTO_LOG "/home/eno/time_measure/test-elog/"
+#define LOG_FILE "/home/eno/time-measure-test/test-log/"
+#define TIME_FILE "/home/eno/time-measure-test/test-time-hash/"
+#define ENCRYPTO_LOG "/home/eno/time-measure-test/test-elog/"
 
+#define COUNT 100       // 回す回数
 #define MAX_LINES 100       // 最大行数
 #define LINE_LENGTH 2000000  // 各行の最大長
 
@@ -83,9 +85,11 @@ int main() {
     */
     char log_file[100] = LOG_FILE;
     char encrypto_log_file[100] = ENCRYPTO_LOG;
+    char time_log_file[100] = TIME_FILE;
 
     strcat(log_file, FILE_NAME);
     strcat(encrypto_log_file, FILE_NAME);
+    strcat(time_log_file, FILE_NAME);
 
     //printf("%s\n", log_file);
     //printf("%s\n", encrypto_log_file);
@@ -158,6 +162,13 @@ int main() {
 
     //時刻を比較して処理時間を出力
     printf("%f\n", (double)(tv2.tv_sec - tv1.tv_sec) + (double)(tv2.tv_usec - tv1.tv_usec) / 1000);
+
+    //処理時間をファイルに書き込む
+    FILE *time_file = fopen(time_log_file, "a");
+    if (time_file == NULL) {
+        perror("time.txtファイルを開けません");
+        return -1;
+    }
     
 
     // for (int i = 0; i < lineCount; i++) {
