@@ -151,12 +151,15 @@ int main() {
 
     //のちの100回回して平均を取る
     gettimeofday(&tv1, NULL);
-    for(int i = 0; i < 100; i++) {
-        int encrypto_data_len = encrypt((unsigned char *)data[i], strlen(data[i]), key, nonce, encrypto_data);
+    for(int j; j < COUNT; j++){
+        
+        for(int i = 0; i < 100; i++) {
+            int encrypto_data_len = encrypt((unsigned char *)data[i], strlen(data[i]), key, nonce, encrypto_data);
 
-        //暗号化されたデータをSHA256でハッシュ化
-        unsigned char hash[SHA256_DIGEST_LENGTH];
-        compute_hash(encrypto_data, encrypto_data_len, hash);
+            //暗号化されたデータをSHA256でハッシュ化
+            unsigned char hash[SHA256_DIGEST_LENGTH];
+            compute_hash(encrypto_data, encrypto_data_len, hash);
+        }
     }
     gettimeofday(&tv2, NULL);
 
@@ -169,7 +172,7 @@ int main() {
         perror("time.txtファイルを開けません");
         return -1;
     }
-    
+
 
     // for (int i = 0; i < lineCount; i++) {
     //     int ciphertext_len = encrypt((unsigned char *)data[i], strlen(data[i]), key, nonce, encrypto_data);

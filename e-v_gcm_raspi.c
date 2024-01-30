@@ -161,7 +161,7 @@ int main() {
     //時刻を取得
     struct timeval  tv1, tv2;
 
-    //最初の1回は暗号化に時間がかかるため，のちに100回回して平均を取る    
+    //最初の1回は暗号化に時間がかかるため，のちに100回回して平均を取る
     for (int i = 0; i < lineCount; i++)
     {
 
@@ -175,7 +175,7 @@ int main() {
     //のちの100回回して平均を取る
     gettimeofday(&tv1, NULL);
     for (int j=0;j<COUNT;j++){
-        
+
         for (int i = 0; i < lineCount; i++)
         {
 
@@ -204,15 +204,15 @@ int main() {
     for (int i = 0; i < lineCount; i++) {
         free(data[i]);
     }
-     
-    
 
 
 
-    
 
-    
-    
+
+
+
+
+
     // for (int i = 0; i < lineCount; i++) {
 
     //     unsigned char ciphertext[128];
