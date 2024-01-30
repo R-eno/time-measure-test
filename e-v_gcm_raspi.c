@@ -9,7 +9,7 @@
 //ファイル名をグローバル変数で定義する
 #define FILE_NAME "256B_test_log.csv"
 #define LOG_FILE "/home/eno/time-measure-test/test-log/"
-#define TIME_FILE "/home/eno/time-measure-test/test-time-gcm2/"
+#define TIME_FILE "/home/eno/time-measure-test/test-time-gcm/"
 #define ENCRYPTO_LOG "/home/eno/time-measure-test/test-evlog/"
 
 #define COUNT 100       // 回す回数
@@ -161,7 +161,7 @@ int main() {
     //時刻を取得
     struct timeval  tv1, tv2;
 
-    //最初の1回は暗号化に時間がかかるため，のちに100回回して平均を取る    
+    //最初の1回は暗号化に時間がかかるため，のちに100回回して平均を取る
     for (int i = 0; i < lineCount; i++)
     {
 
@@ -175,7 +175,7 @@ int main() {
     //のちの100回回して平均を取る
     gettimeofday(&tv1, NULL);
     for (int j=0;j<COUNT;j++){
-        
+
         for (int i = 0; i < lineCount; i++)
         {
 
@@ -190,7 +190,7 @@ int main() {
     gettimeofday(&tv2, NULL);
 
     //時刻を比較して処理時間を出力
-    printf("%f\n", (double)(tv2.tv_sec - tv1.tv_sec) + (double)(tv2.tv_usec - tv1.tv_usec) / 1000000);
+    printf("%f\n", (double)(tv2.tv_sec - tv1.tv_sec) + (double)(tv2.tv_usec - tv1.tv_usec) / 1000);
 
     //処理時間をファイルに書き込む
     FILE *time_file = fopen(time_log_file, "a");
@@ -204,15 +204,15 @@ int main() {
     for (int i = 0; i < lineCount; i++) {
         free(data[i]);
     }
-     
-    
 
 
 
-    
 
-    
-    
+
+
+
+
+
     // for (int i = 0; i < lineCount; i++) {
 
     //     unsigned char ciphertext[128];
