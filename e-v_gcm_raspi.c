@@ -9,7 +9,7 @@
 //ファイル名をグローバル変数で定義する
 #define FILE_NAME "256B_test_log.csv"
 #define LOG_FILE "/home/eno/time-measure-test/test-log/"
-#define TIME_FILE "/home/eno/time-measure-test/test-time-gcm/"
+#define TIME_FILE "/home/eno/time-measure-test/test-time-gcm2/"
 #define ENCRYPTO_LOG "/home/eno/time-measure-test/test-evlog/"
 
 #define COUNT 100       // 回す回数
@@ -190,7 +190,7 @@ int main() {
     gettimeofday(&tv2, NULL);
 
     //時刻を比較して処理時間を出力
-    printf("%f\n", (double)(tv2.tv_sec - tv1.tv_sec) + (double)(tv2.tv_usec - tv1.tv_usec) / 1000);
+    printf("%f\n", (double)(tv2.tv_sec - tv1.tv_sec) + (double)(tv2.tv_usec - tv1.tv_usec) / 1000000);
 
     //処理時間をファイルに書き込む
     FILE *time_file = fopen(time_log_file, "a");
